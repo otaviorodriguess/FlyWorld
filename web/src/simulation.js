@@ -24,13 +24,13 @@ export class Learner{
  epsilon(){return this.enabled?Math.max(.05,.28*Math.exp(-this.steps/6000)):0;}
  values(state){return this.q[state]??(this.q[state]=[.02,0,0,0,0,0,-.02]);}
  learn(state,action,reward,next,terminal=false){const values=this.values(state);values[action]+=.18*(reward+(terminal?0:.92*Math.max(...this.values(next)))-values[action]);this.steps++;this.lastReward=reward;}
- command(world,body,sensors){
+ command(world,body,sensors,interest=null){
  let observed=null;if(sensors.food>0){const a=body.angle+sensors.bearing;observed=[body.x+Math.cos(a)*sensors.distance,body.z+Math.sin(a)*sensors.distance];this.foods[`${Math.round(observed[0]/20)},${Math.round(observed[1]/20)}`]=observed;}
  for(const [key,p] of Object.entries(this.foods)){if(Math.hypot(p[0]-body.x,p[1]-body.z)<45&&(!observed||Math.hypot(p[0]-observed[0],p[1]-observed[1])>25))delete this.foods[key];}
  const remembered=Object.values(this.foods).sort((a,b)=>Math.hypot(a[0]-body.x,a[1]-body.z)-Math.hypot(b[0]-body.x,b[1]-body.z));
- if(remembered.length)this.goal=remembered[0];else{if(!this.exploreGoal||Math.hypot(this.exploreGoal[0]-body.x,this.exploreGoal[1]-body.z)<55){let best=Infinity;for(let i=0;i<8;i++){const a=i*Math.PI/4,x=clamp(body.x+Math.cos(a)*260,35,world.width-35),z=clamp(body.z+Math.sin(a)*260,35,world.height-35);const score=(this.visits[`${Math.floor(x/160)},${Math.floor(z/160)}`]||0)+Math.random()*.5;if(score<best){best=score;this.exploreGoal=[x,z];}}}this.goal=this.exploreGoal;}
+ if(interest)this.goal=[interest.x,interest.z];else if(remembered.length)this.goal=remembered[0];else{if(!this.exploreGoal||Math.hypot(this.exploreGoal[0]-body.x,this.exploreGoal[1]-body.z)<55){let best=Infinity;for(let i=0;i<8;i++){const a=i*Math.PI/4,x=clamp(body.x+Math.cos(a)*260,35,world.width-35),z=clamp(body.z+Math.sin(a)*260,35,world.height-35);const score=(this.visits[`${Math.floor(x/160)},${Math.floor(z/160)}`]||0)+Math.random()*.5;if(score<best){best=score;this.exploreGoal=[x,z];}}}this.goal=this.exploreGoal;}
  const distance=Math.hypot(this.goal[0]-body.x,this.goal[1]-body.z),bearing=wrap(Math.atan2(this.goal[1]-body.z,this.goal[0]-body.x)-body.angle);
- const state=[Math.min(7,Math.floor((bearing+Math.PI)/(Math.PI*2)*8)),Math.min(2,Math.floor(distance/80)),Math.min(2,Math.floor(sensors.front*3)),+(sensors.left>.55),+(sensors.right>.55),+(remembered.length>0)].join(':');
+ const state=[Math.min(7,Math.floor((bearing+Math.PI)/(Math.PI*2)*8)),Math.min(2,Math.floor(distance/80)),Math.min(2,Math.floor(sensors.front*3)),+(sensors.left>.55),+(sensors.right>.55),+(remembered.length>0)].join(':')+(interest?`:${interest.id}`:'');
  if(this.state===null||this.elapsed>=.35){if(this.state!==null&&this.enabled)this.learn(this.state,this.action,this.reward-.02,state);this.state=state;this.action=Math.random()<this.epsilon()?Math.floor(Math.random()*7):this.values(state).indexOf(Math.max(...this.values(state)));this.elapsed=0;this.reward=0;this.previousDistance=distance;this.collisionPending=false;}
  let command=[...ACTIONS[this.action]];if(sensors.front>.7)command=[Math.min(command[0],.12),sensors.left<sensors.right?-1:1];return command;
  }
