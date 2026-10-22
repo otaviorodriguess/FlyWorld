@@ -50,6 +50,14 @@ Na versão web:
 
 A memória pertence ao navegador utilizado. Limpar os dados do site remove esse progresso; use **Exportar memória**, na janela de informações, para guardar uma cópia.
 
+## 🦋 Seis pequenas aventuras no jardim
+
+Encontre **flores com néctar, gotas de orvalho, abrigo de cogumelos, pólen, uma clareira com brisa e vaga-lumes**. Cada local tem objetos próprios e uma experiência que aparece no diário de descobertas.
+
+A mosca pode encontrar esses locais ao explorar. Abra **Pequenas aventuras** no painel para convidá-la a visitar um deles. Colete pólen e depois visite o néctar para completar uma entrega; o pólen aparece no corpo da mosca durante o caminho.
+
+As descobertas, o diário e as entregas ficam salvos no navegador. Veja o [guia das experiências](docs/EXPERIENCIAS_JARDIM.md).
+
 ## 🧠 Aprendizagem e dados neurais
 
 O modo Livre usa **Q-learning artificial** para atualizar decisões a partir de exploração, comida e colisões. Essa memória é separada dos pesos do conectoma biológico.
@@ -115,7 +123,7 @@ npm test
 npm run build
 ```
 
-A validação desta versão passou em **33 testes Python e 4 testes web**, além do build de produção e da navegação automatizada em tamanhos de tela de computador e celular. Veja os [detalhes da publicação](docs/DEPLOY_VERCEL.md).
+A validação desta versão passou em **33 testes Python e 11 testes web**, além do build de produção e da navegação automatizada em tamanhos de tela de computador e celular. Veja os [detalhes da publicação](docs/DEPLOY_VERCEL.md).
 
 ## 📚 Para explorar o projeto
 
