@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createLayout,migrateGardenMemory,pathDistance} from './layout.js';
+import {blocked} from './simulation.js';import {planRoute} from './experiences.js';
+test('layout keeps six safe and separated stations with routes',()=>{const w=createLayout();assert.equal(w.sites.length,6);for(const a of w.sites){assert.equal(blocked(w,a.x,a.z,90),false);assert.ok(planRoute(w,[w.spawn.x,w.spawn.z],[a.x,a.z]).length);for(const b of w.sites)if(a!==b)assert.ok(Math.hypot(a.x-b.x,a.z-b.z)>=600);}assert.equal(pathDistance(w,w.spawn.x,w.spawn.z),0);assert.ok(w.foods.length>20);assert.deepEqual(createLayout(),w);});
+test('layout migration retains policy and discoveries but drops stale coordinates',()=>{const old={q:{a:[1,0,0,0,0,0,0]},steps:4,foods:{x:[1,2]},visits:{a:4},experiences:{pollen:true,discoveries:{nectar:2}}};const next=migrateGardenMemory(old,2);assert.deepEqual(next.q,old.q);assert.equal(next.experiences.discoveries.nectar,2);assert.deepEqual(next.foods,{});assert.deepEqual(next.visits,{});assert.equal(next.layoutVersion,2);assert.deepEqual(migrateGardenMemory(next,2),next);});

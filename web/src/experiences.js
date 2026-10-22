@@ -8,6 +8,7 @@ export const EXPERIENCES=[
  {id:'fireflies',name:'Dança dos vaga-lumes',icon:'✧',color:'#b5a5d6',description:'Acompanhar pontos de luz que dançam ao redor das flores.',duration:3,reward:6,message:'Observou a dança dos vaga-lumes. Cada luz segue seu próprio ritmo.'},
 ];
 export function createSites(world){
+ if(world.sites)return world.sites.map(site=>({...EXPERIENCES.find(e=>e.id===site.id),...site,radius:78}));
  const sites=[];
  EXPERIENCES.forEach((definition,i)=>{let point=null;const base=-Math.PI/2+i*Math.PI/3;
   for(let radius=165;radius<=1000&&!point;radius+=55)for(let offset=0;offset<12&&!point;offset++){

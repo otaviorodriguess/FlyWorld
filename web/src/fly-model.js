@@ -6,10 +6,10 @@ export function buildDetailedFly(garden){
  const bodyTexture=canvasTexture(256,(ctx,size)=>{ctx.fillStyle='#ceaa70';ctx.fillRect(0,0,size,size);for(let i=0;i<7;i++){const y=i*size/7;const band=ctx.createLinearGradient(0,y,0,y+size/7);band.addColorStop(0,'#473a2b');band.addColorStop(.22,'#725237');band.addColorStop(.28,'#b28b55');band.addColorStop(1,'#d7b676');ctx.fillStyle=band;ctx.fillRect(0,y,size,size/7);}const random=randomSequence(83);ctx.fillStyle='#503d2620';for(let i=0;i<2400;i++)ctx.fillRect(random()*size,random()*size,1,1);});
  const amber=material('#dfb571',{map:bodyTexture,roughness:.56}),thorax=material('#7c6850',{roughness:.66}),head=material('#b39562',{roughness:.56}),dark=material('#453b2d',{roughness:.58});
  const eyeMap=surfaceTexture('eye');const eye=new THREE.MeshPhysicalMaterial({color:'#f1c4ac',map:eyeMap,bumpMap:eyeMap,bumpScale:.18,roughness:.27,clearcoat:.6,clearcoatRoughness:.25});
- const abdomenPoints=[];for(let i=0;i<=24;i++){const t=i/24;abdomenPoints.push(new THREE.Vector2(Math.max(.2,Math.sin(Math.PI*t)**.68*(9.5+2*t)),-25+t*48));}const abdomen=g.mesh(new THREE.LatheGeometry(abdomenPoints,36),amber,g.fly);abdomen.rotation.z=-Math.PI/2;abdomen.position.set(-21,20,0);abdomen.scale.z=.92;abdomen.castShadow=true;
- g.ball([0,25,0],[15,12,11],thorax,g.fly);g.ball([0,33,0],[10,4,8],material('#a38c62'),g.fly);g.ball([19,26,0],[10,8.5,9.3],head,g.fly);
+ const abdomenPoints=[];for(let i=0;i<=24;i++){const t=i/24;abdomenPoints.push(new THREE.Vector2(Math.max(.2,Math.sin(Math.PI*t)**.8*(8.5+2*t)),-25+t*48));}const abdomen=g.mesh(new THREE.LatheGeometry(abdomenPoints,36),amber,g.fly);abdomen.rotation.z=-Math.PI/2;abdomen.position.set(-20,21,0);abdomen.scale.z=.92;abdomen.castShadow=true;
+ g.ball([0,25,0],[13.5,11,10],thorax,g.fly);g.ball([0,33,0],[10,4,8],material('#a38c62'),g.fly);g.ball([19,26,0],[10,8.5,9.3],head,g.fly);
  for(const side of [-1,1]){
-  const eyeBall=g.ball([23,28,side*7],[7,8,5.7],eye,g.fly);eyeBall.rotation.x=side*.13;
+  const eyeBall=g.ball([23,28,side*7],[6.8,7.6,5.6],eye,g.fly);eyeBall.rotation.x=side*.13;
   g.link([27,28,side*3],[33,30,side*5],.65,dark,g.fly);g.ball([33,30,side*5],[2.8,1.7,1.7],head,g.fly);
   g.link([33,30,side*5],[40,34,side*7],.3,dark,g.fly);
   for(let i=0;i<5;i++)g.link([35+i,31+i*.5,side*(5.5+i*.3)],[34+i,34+i*.6,side*(8+i*.4)],.13,dark,g.fly);

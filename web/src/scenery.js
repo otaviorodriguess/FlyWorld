@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {blocked} from './simulation.js';
+import {pathDistance} from './layout.js';
 import {naturalMaterial as material,surfaceTexture,randomSequence,leafGeometry,petalGeometry,mushroomGeometry,instances} from './art.js';
 const ball=new THREE.SphereGeometry(1,12,8);
 const cylinder=new THREE.CylinderGeometry(.75,1,1,7);
@@ -7,7 +8,8 @@ function segment(a,b,r){const av=new THREE.Vector3(...a),bv=new THREE.Vector3(..
 export function buildNaturalGround(g){
  const groundTexture=surfaceTexture('ground');groundTexture.wrapS=groundTexture.wrapT=THREE.RepeatWrapping;groundTexture.repeat.set(26,18);groundTexture.anisotropy=Math.min(4,g.renderer.capabilities.getMaxAnisotropy());
  const ground=g.mesh(new THREE.PlaneGeometry(g.world.width,g.world.height),material('#c4d4b4',{map:groundTexture,bumpMap:groundTexture,bumpScale:.5}));ground.rotation.x=-Math.PI/2;ground.position.set(g.world.width/2,-.4,g.world.height/2);ground.receiveShadow=true;
- const vertices=[],uv=[],indices=[];for(let x=0,i=0;x<=g.world.width;x+=40,i++){const z=2000+Math.sin(x*.0018)*260,width=24+Math.sin(x*.011)*3;vertices.push(x,.35,z-width,x,.35,z+width);uv.push(x/100,0,x/100,1);if(i){const n=i*2;indices.push(n-2,n-1,n,n-1,n+1,n);}}const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);geometry.computeVertexNormals();const pathTexture=surfaceTexture('path');pathTexture.wrapS=pathTexture.wrapT=THREE.RepeatWrapping;const path=g.mesh(geometry,material('#d3d0bc',{map:pathTexture,side:THREE.DoubleSide,roughness:1}));path.receiveShadow=true;
+ const pathTexture=surfaceTexture('path');pathTexture.wrapS=pathTexture.wrapT=THREE.RepeatWrapping;
+ for(const path of g.world.paths){const vertices=[],uv=[],indices=[];path.points.forEach(([x,z],i)=>{const prev=path.points[Math.max(0,i-1)],next=path.points[Math.min(path.points.length-1,i+1)],dx=next[0]-prev[0],dz=next[1]-prev[1],length=Math.hypot(dx,dz)||1,nx=-dz/length*path.width/2,nz=dx/length*path.width/2;vertices.push(x+nx,.35,z+nz,x-nx,.35,z-nz);uv.push(i*10,0,i*10,1);if(i){const n=i*2;indices.push(n-2,n-1,n,n-1,n+1,n);}});const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);geometry.computeVertexNormals();const mesh=g.mesh(geometry,material('#d3d0bc',{map:pathTexture,side:THREE.DoubleSide,roughness:1}));mesh.receiveShadow=true;}
  g.water=[];g.ripples=[];const stones=[],reeds=[],leaves=[];
  for(const [x,z,rx,rz] of g.world.ponds){const shore=g.mesh(new THREE.CircleGeometry(1,64),material('#aaad80'));shore.rotation.x=-Math.PI/2;shore.scale.set(rx*1.07,rz*1.07,1);shore.position.set(x,.45,z);const water=g.mesh(new THREE.CircleGeometry(1,72),new THREE.MeshPhysicalMaterial({color:'#568f85',roughness:.2,metalness:.2,clearcoat:.8,envMapIntensity:.8,side:THREE.DoubleSide}));water.rotation.x=-Math.PI/2;water.scale.set(rx,rz,1);water.position.set(x,.8,z);g.water.push(water);
   for(let i=0;i<3;i++){const ripple=g.mesh(new THREE.RingGeometry(1,1.025,48),new THREE.MeshBasicMaterial({color:'#c3d9bb',side:THREE.DoubleSide,transparent:true,opacity:.14,depthWrite:false}));ripple.rotation.x=-Math.PI/2;ripple.position.set(x+rx*.27,.95,z-rz*.1);g.ripples.push({mesh:ripple,rx:rx*.28,rz:rz*.28,phase:i/3});}
@@ -20,7 +22,7 @@ export function buildNaturalGround(g){
 }
 export function buildNaturalPlants(g){
  const random=randomSequence(74),grass=[],stems=[],petals=[],centers=[],leaves=[];
- const spot=()=>{for(let i=0;i<15;i++){const x=random()*g.world.width,z=random()*g.world.height;if(!blocked(g.world,x,z,4)&&Math.abs(z-2000-Math.sin(x*.0018)*260)>30)return [x,z];}return null;};
+ const spot=()=>{for(let i=0;i<15;i++){const region=g.world.regions[Math.floor(random()*g.world.regions.length)],a=random()*6.28,r=Math.sqrt(random())*region.radius,x=region.x+Math.cos(a)*r,z=region.z+Math.sin(a)*r;if(!blocked(g.world,x,z,4)&&pathDistance(g.world,x,z)>45)return [x,z];}return null;};
  for(let i=0;i<6500;i++){const p=spot();if(!p)continue;grass.push({position:[p[0],0,p[1]],scale:[.6+random(),.4+random()*.85,.6+random()],rotation:[0,random()*Math.PI*2,0],color:['#71804d','#8c965c','#a2a36a','#5b7550'][i%4]});}
  const blade=new THREE.BufferGeometry();blade.setAttribute('position',new THREE.Float32BufferAttribute([-1.4,0,0,1.4,0,0,-.7,8,-.7,1,8,-.7,2.8,17,-2.5],3));blade.setIndex([0,1,2,1,3,2,2,3,4]);blade.computeVertexNormals();instances(g.scene,blade,material('#ffffff',{side:THREE.DoubleSide}),grass);
  const palette=['#e6d0a1','#d2a4ad','#b7acc4','#d8bd6c','#eee4ca'];
