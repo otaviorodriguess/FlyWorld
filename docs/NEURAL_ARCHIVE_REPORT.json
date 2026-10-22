@@ -1,0 +1,100 @@
+{
+  "archive": "nature_2026_07.zip",
+  "recordings": 600,
+  "experiments": [
+    "sugar"
+  ],
+  "backends": [
+    "brian2cpp",
+    "brian2cuda",
+    "brian2genn",
+    "genn",
+    "nestgpu",
+    "pytorch"
+  ],
+  "durations_s": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "trial_counts": [
+    1,
+    4,
+    8,
+    16,
+    32
+  ],
+  "comparison": {
+    "experiment": "sugar",
+    "duration_s": 1.0,
+    "n_trials_in_file": 1,
+    "selected_trial": 0,
+    "round": 1,
+    "population": 138639,
+    "reference": "brian2cpp",
+    "limitation": "Descriptive comparison of recordings; no validated motor decoding or live responsiveness.",
+    "rows": [
+      {
+        "backend": "brian2cpp",
+        "spikes": 16567,
+        "active": 380,
+        "mean_population_hz": 0.11949739972157906,
+        "active_jaccard_cpu": 1.0,
+        "rate_correlation_cpu": 1.0,
+        "population_bin_correlation_cpu": 0.9999999999999998,
+        "verified_sha256": "ebed8fbecb252111b4b928f3defcdc6364580ea1d5e8a86faab03704838e667a"
+      },
+      {
+        "backend": "brian2cuda",
+        "spikes": 16418,
+        "active": 405,
+        "mean_population_hz": 0.11842266606077655,
+        "active_jaccard_cpu": 0.891566265060241,
+        "rate_correlation_cpu": 0.9929636108223243,
+        "population_bin_correlation_cpu": 0.11233784804371509,
+        "verified_sha256": "4a7e4b3803bfa53a2eb029786cfbd79866080e8b6655fe9a31d718f38f8d4b47"
+      },
+      {
+        "backend": "pytorch",
+        "spikes": 17429,
+        "active": 415,
+        "mean_population_hz": 0.12571498640353723,
+        "active_jaccard_cpu": 0.8928571428571429,
+        "rate_correlation_cpu": 0.9913171808340101,
+        "population_bin_correlation_cpu": 0.1876301752608009,
+        "verified_sha256": "d2504be8f8497f5886810b5875b0a5e8bf8a1620008f3f0a80b37b74abce0c2b"
+      },
+      {
+        "backend": "nestgpu",
+        "spikes": 17233,
+        "active": 412,
+        "mean_population_hz": 0.12430124279603863,
+        "active_jaccard_cpu": 0.8992805755395683,
+        "rate_correlation_cpu": 0.9935306245050715,
+        "population_bin_correlation_cpu": 0.11654842064232378,
+        "verified_sha256": "13a2e0698e061d52f334028911bffc386e54b91b61c29ba47dd58c65feb0c557"
+      },
+      {
+        "backend": "genn",
+        "spikes": 16978,
+        "active": 386,
+        "mean_population_hz": 0.12246193351077259,
+        "active_jaccard_cpu": 0.9343434343434344,
+        "rate_correlation_cpu": 0.9896484822497873,
+        "population_bin_correlation_cpu": 0.1395017220261636,
+        "verified_sha256": "f4272bac06d8e0f06024f40cdd80212d3ac056617dd6a0bcd1c5c98dcc109a5c"
+      },
+      {
+        "backend": "brian2genn",
+        "spikes": 16738,
+        "active": 383,
+        "mean_population_hz": 0.12073081888934571,
+        "active_jaccard_cpu": 0.9365482233502538,
+        "rate_correlation_cpu": 0.9904773485905021,
+        "population_bin_correlation_cpu": 0.2934406243045637,
+        "verified_sha256": "2a36ddcdbb0606b4e7d1978fd693c2c2d3ffe11c08b4f04e0f75df6384e92503"
+      }
+    ]
+  }
+}

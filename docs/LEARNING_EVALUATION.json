@@ -1,0 +1,30 @@
+{
+  "kind": "artificial Q-learning, not connectome plasticity",
+  "before": {
+    "episodes": 40,
+    "foods_collected": 5,
+    "success_rate": 0.125,
+    "mean_shaped_return": -2.3494546185780343,
+    "seed": 2026,
+    "training": false
+  },
+  "training": {
+    "episodes": 120,
+    "foods_collected": 118,
+    "success_rate": 0.9833333333333333,
+    "mean_shaped_return": 16.79485028424863,
+    "seed": 42,
+    "training": true
+  },
+  "after": {
+    "episodes": 40,
+    "foods_collected": 40,
+    "success_rate": 1.0,
+    "mean_shaped_return": 16.95982967302175,
+    "seed": 2026,
+    "training": false
+  },
+  "q_states": 47,
+  "updates": 1648,
+  "limitation": "Open small arena curriculum; does not establish improvement across the larger garden."
+}
