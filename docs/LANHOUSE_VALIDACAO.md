@@ -17,7 +17,7 @@
 | Pausa e isolamento | navegador testa saída durante treino ativo, ocultação simulada e diálogo; passos param e teclas são limpas. |
 | Persistência e falhas | navegador testa recarga, arquivos inválidos, quota bloqueada e exportação disponível. |
 | Regressão do jardim | testes unitários existentes passam; brisa testada em oito direções de chegada. O teste completo das experiências percorre os destinos. |
-| Publicação | conferir commit remoto e URL pública após o deploy; registro final no ledger do plano. |
+| Publicação | HTTP 200, bundle de produção igual ao build local e teste completo da lan house passando em https://flyworld-garden.vercel.app; commit de código 227aee9 e registro final no ledger do plano. |
 
 23 testes unitários e os cenários completos de navegação passaram. A revisão independente confirmou as correções de memória, foco, convites, saques reservados e limpeza de buffers.
 

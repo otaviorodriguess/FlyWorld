@@ -1,7 +1,7 @@
 # FlyWorld: jardim reorganizado e lan house com Pong
 
 Data: 2026-10-22
-Status: desenho aprovado e implementado; validação local concluída, publicação em andamento.
+Status: implementado, publicado e validado no endereço público em 2026-10-22.
 
 ## Objetivo e escopo aprovado em conversa
 

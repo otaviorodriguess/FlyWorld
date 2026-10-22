@@ -51,7 +51,7 @@ Interfaces: LanHouse(garden).tick(dt), render(time), setActive(bool), snapshot()
 Files: testes de navegação, docs, README, evidências.
 - [x] npm test, npm run build, inspeção de imagens desktop/mobile e auditoria da especificação.
 - [x] Registrar resultados de treinamento e instruções.
-- [ ] Commits personalizados, push GitHub, deploy Vercel, verificar URL pública e estado remoto.
+- [x] Commits personalizados, push GitHub, deploy Vercel, verificar URL pública e estado remoto.
 
 ## Ledger de execução
 
@@ -62,8 +62,10 @@ Files: testes de navegação, docs, README, evidências.
 - Testes de robustez passaram: armazenamento inválido e indisponível, exportação, foco de teclado, aba oculta simulada, troca com treino ativo, ajuda e cancelamento.
 - Ruling: o jardim conserva uma clareira inicial, com flores ao longo das rotas, mantendo as experiências espalhadas; a brisa aproxima a mosca do centro antes de aplicar deslocamento para não impedir a descoberta.
 - Tarefa 4: teste completo da lan house passou com demonstração real por toque, treino, avaliação sem mutação, sessão preservada e replay.
-- Tarefa 5: regressão das seis experiências concluída; aguardando somente a verificação final da publicação.
+- Tarefa 5: regressão das seis experiências e verificação pública concluídas.
 
 - Regressão completa adventures-smoke.mjs passou com seis descobertas, entrega, persistência, replay e mobile. Otimização de tiles de 600 unidades revisada independentemente; liberação dos buffers preserva geometria compartilhada.
 
 - Última validação local: 23 testes unitários, build Vite, lanhouse-smoke (inclusive clique real no acesso 3D via visão geral), lanhouse-robustness (incluindo confirmação de reinício) e adventures-smoke passaram. Imagens de computador e celular inspecionadas.
+
+- Produção verificada em 2026-10-22: https://flyworld-garden.vercel.app, HTTP 200, bundle index-CYBSdGqT.js correspondente ao build local. Deployment dpl_7m7hx9UvQw2nBnfCJCQaySsGUM5w. lanhouse-smoke.mjs passou também contra a URL pública, incluindo acesso 3D, demonstração, treino, avaliação imutável, retorno, recarga e toque no celular. Código publicado a partir de 227aee9; esta atualização final altera somente documentação.
