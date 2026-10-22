@@ -1,0 +1,33 @@
+{
+  "trainingEpisodes": 15000,
+  "trainingSeed": 17,
+  "before": {
+    "policy": {
+      "episodes": 100,
+      "hits": 0.36,
+      "seconds": 3.6910999999999645
+    },
+    "random": {
+      "episodes": 100,
+      "hits": 0.38,
+      "seconds": 3.79539999999996
+    },
+    "seedStart": 900001,
+    "improved": false
+  },
+  "after": {
+    "policy": {
+      "episodes": 100,
+      "hits": 3.16,
+      "seconds": 17.034600000000022
+    },
+    "random": {
+      "episodes": 100,
+      "hits": 0.38,
+      "seconds": 3.79539999999996
+    },
+    "seedStart": 900001,
+    "improved": true
+  },
+  "updates": 4954685
+}

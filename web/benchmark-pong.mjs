@@ -1,0 +1,3 @@
+import {PongAgent} from './src/pong.js';import {PongEvaluation,trainEpisodes} from './src/pong-evaluation.js';import {writeFileSync} from 'node:fs';
+const evaluate=a=>{const e=new PongEvaluation(a);while(e.status==='running')e.advance(5000);return e.result;};const agent=new PongAgent(),before=evaluate(agent);trainEpisodes(agent,15000,17);const after=evaluate(agent);writeFileSync(new URL('../docs/PONG_EVALUATION.json',import.meta.url),JSON.stringify({trainingEpisodes:15000,trainingSeed:17,before,after,updates:agent.updates},null,2));console.log(JSON.stringify({before,after,updates:agent.updates}));
+
