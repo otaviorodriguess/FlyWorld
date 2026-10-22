@@ -16,3 +16,19 @@ data/results/nature_2026_07/archive*
 # PyTorch cached weight matrices (generated from connectivity data)
 data/weight_coo.pkl
 data/weight_csr.pkl
+
+.venv/
+.pytest_cache/
+flyworld-output/
+
+# Local credentials and generated web files
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+*.crdownload
+*.zip
