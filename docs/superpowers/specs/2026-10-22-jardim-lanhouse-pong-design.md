@@ -1,11 +1,11 @@
 # FlyWorld: jardim reorganizado e lan house com Pong
 
 Data: 2026-10-22
-Status: desenho proposto, aguardando revisão do usuário.
+Status: desenho aprovado e implementado; validação local concluída, publicação em andamento.
 
 ## Objetivo e escopo aprovado em conversa
 
-Melhorar o desenho da mosca e a distribuição dos elementos pelo jardim e acrescentar uma lan house em um mapa separado, onde o usuário possa ensinar Pong à mosca e observar sua aprendizagem. A conversa aprovou Pong como primeiro jogo. Esta especificação detalha a implementação proposta para revisão; nenhum código de produto foi alterado nesta etapa.
+Melhorar o desenho da mosca e a distribuição dos elementos pelo jardim e acrescentar uma lan house em um mapa separado, onde o usuário possa ensinar Pong à mosca e observar sua aprendizagem. A conversa aprovou Pong como primeiro jogo. Esta especificação registra o desenho aprovado para a implementação.
 
 A entrega será na versão web existente, mantendo publicação na Vercel e código no GitHub. O aplicativo Python e os dados neurais originais ficam fora desta mudança.
 
@@ -87,4 +87,4 @@ Nenhuma funcionalidade desta entrega simula plasticidade do conectoma ou transfo
 
 Escopo restrito a dois mapas e um jogo. Não inclui jogos adicionais, multiplayer ou treinamento biológico. Modos de partida, ações, recompensas, saques, persistência e critérios de avaliação estão definidos. A promessa de resultado é implementar e medir o treinamento, e não afirmar antecipadamente que o agente já aprendeu.
 
-Próxima etapa: revisão do usuário; depois, plano de implementação com a skill writing-plans e escolha do método de execução, antes de modificar o produto.
+Implementação executada pelo plano correspondente, com revisão independente e evidências em docs/LANHOUSE_VALIDACAO.md.

@@ -52,9 +52,25 @@ Na versão web:
 
 A memória pertence ao navegador utilizado. Limpar os dados do site remove esse progresso; use **Exportar memória**, na janela de informações, para guardar uma cópia.
 
+## 🖥️ Lan da Mosca — ensine uma nova habilidade
+
+Selecione **Lan house** no topo para visitar uma sala 3D separada, com a mosca diante de um computador jogando Pong. O jardim fica preservado enquanto você estiver lá.
+
+1. **Demonstrar:** você controla a raquete com as setas ou botões de toque; seus exemplos são registrados.
+2. **Treinar:** a mosca escolhe ações e aprende por recompensa. É possível acelerar e acompanhar as estatísticas.
+3. **Avaliar:** compare a política congelada com ações aleatórias, em 100 episódios por política e com os mesmos saques reservados.
+
+A memória de Pong é independente e exportável. O jogo é de uma raquete contra a parede, com episódios de até 30 segundos. No [experimento registrado](docs/PONG_EVALUATION.json), 15 mil partidas de treino levaram a 2,36 devoluções por episódio, contra 0,39 da referência aleatória. Sua sessão começa sem esse treino: o resultado depende das experiências e demonstrações.
+
+[Como ensinar, treinar e avaliar](docs/LANHOUSE_PONG.md)
+
+![Lan da Mosca com a partida no monitor e no painel](docs/images/lanhouse.png)
+
 ## 🦋 Seis pequenas aventuras no jardim
 
 Encontre **flores com néctar, gotas de orvalho, abrigo de cogumelos, pólen, uma clareira com brisa e vaga-lumes**. Cada local tem objetos próprios e uma experiência que aparece no diário de descobertas.
+
+As experiências agora ficam em regiões distintas, conectadas por caminhos: campo de flores, margem do lago, bosque, jardim de pólen, clareira e recanto dos vaga-lumes. Frutas aparecem em grupos e as árvores formam bosques.
 
 A mosca pode encontrar esses locais ao explorar. Abra **Pequenas aventuras** no painel para convidá-la a visitar um deles. Colete pólen e depois visite o néctar para completar uma entrega; o pólen aparece no corpo da mosca durante o caminho.
 
@@ -125,7 +141,7 @@ npm test
 npm run build
 ```
 
-A validação desta versão passou em **33 testes Python e 11 testes web**, além do build de produção e da navegação automatizada em tamanhos de tela de computador e celular. Veja os [detalhes da publicação](docs/DEPLOY_VERCEL.md).
+A validação desta versão passou em **33 testes Python na versão local e 23 testes web**, além do build de produção e da navegação automatizada em tamanhos de tela de computador e celular. Veja os [detalhes da publicação](docs/DEPLOY_VERCEL.md).
 
 ## 📚 Para explorar o projeto
 
@@ -134,6 +150,7 @@ A validação desta versão passou em **33 testes Python e 11 testes web**, alé
 - [Jardim e interações](docs/JARDIM_INTERACOES.md)
 - [Autonomia e aprendizagem](docs/MODO_LIVRE_APRENDIZAGEM.md)
 - [Biblioteca e gravações neurais](docs/BIBLIOTECA_NEURAL.md)
+- [Lan house e aprendizagem de Pong](docs/LANHOUSE_PONG.md)
 - [Publicação na Vercel](docs/DEPLOY_VERCEL.md)
 - [Documentação científica original](README_UPSTREAM.md)
 

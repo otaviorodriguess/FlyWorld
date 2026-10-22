@@ -4,30 +4,32 @@
   "before": {
     "policy": {
       "episodes": 100,
-      "hits": 0.36,
-      "seconds": 3.6910999999999645
+      "hits": 0.4,
+      "seconds": 3.8996999999999606
     },
     "random": {
       "episodes": 100,
-      "hits": 0.38,
-      "seconds": 3.79539999999996
+      "hits": 0.39,
+      "seconds": 3.8457999999999597
     },
     "seedStart": 900001,
-    "improved": false
+    "seedStep": 2,
+    "improved": true
   },
   "after": {
     "policy": {
       "episodes": 100,
-      "hits": 3.16,
-      "seconds": 17.034600000000022
+      "hits": 2.36,
+      "seconds": 13.351299999999954
     },
     "random": {
       "episodes": 100,
-      "hits": 0.38,
-      "seconds": 3.79539999999996
+      "hits": 0.39,
+      "seconds": 3.8457999999999597
     },
     "seedStart": 900001,
+    "seedStep": 2,
     "improved": true
   },
-  "updates": 4954685
+  "updates": 5152574
 }
