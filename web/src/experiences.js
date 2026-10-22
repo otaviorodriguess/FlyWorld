@@ -1,4 +1,4 @@
-import {blocked,clamp} from './simulation.js';
+import {blocked,clamp,wrap} from './simulation.js';
 export const EXPERIENCES=[
  {id:'nectar',name:'Banquete de néctar',icon:'✿',color:'#d889a8',description:'Encontrar flores e provar uma pequena reserva de néctar.',duration:2,reward:7,message:'Encontrou néctar entre as flores. A reserva volta a crescer depois de um minuto.'},
  {id:'dew',name:'Gotas de orvalho',icon:'◈',color:'#78c5da',description:'Parar junto às gotas e observar os reflexos da água.',duration:2,reward:5,message:'Explorou as gotas de orvalho, bem longe da água profunda.'},
@@ -42,3 +42,5 @@ export function planRoute(world,start,end){
  }return [];
 }
 export function applyBreeze(world,body,dt,time){const angle=.35+Math.sin(time*.6)*.2,x=body.x+Math.cos(angle)*13*dt,z=body.z+Math.sin(angle)*13*dt;if(!blocked(world,x,z)){body.x=x;body.z=z;}else body.collision=true;}
+
+export function experienceCommand(site,body){if(site.id!=='wind'||Math.hypot(site.x-body.x,site.z-body.z)<30)return [0,0];const turn=wrap(Math.atan2(site.z-body.z,site.x-body.x)-body.angle);return [Math.abs(turn)<.4?.35:0,clamp(turn,-1,1)];}

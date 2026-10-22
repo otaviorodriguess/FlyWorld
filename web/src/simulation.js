@@ -38,4 +38,7 @@ export class Learner{
  suspend(){this.state=null;this.elapsed=0;this.reward=0;this.previousDistance=null;}
  snapshot(){return {schema:1,kind:'artificial Q-learning, not connectome plasticity',q:this.q,steps:this.steps,visits:this.visits,foods:this.foods};}
 }
-export function validateMemory(value){return value?.schema===1&&value.q&&Object.keys(value.q).length<10000&&Object.values(value.q).every(a=>Array.isArray(a)&&a.length===7&&a.every(Number.isFinite));}
+export function validateMemory(value){
+ const table=(v,check)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).length<10000&&Object.entries(v).every(([k,a])=>k.length<100&&check(a));
+ return Boolean(value?.schema===1&&table(value.q,a=>Array.isArray(a)&&a.length===7&&a.every(n=>Number.isFinite(n)&&Math.abs(n)<1e8))&&(value.steps===undefined||Number.isSafeInteger(value.steps)&&value.steps>=0)&&table(value.visits||{},n=>Number.isSafeInteger(n)&&n>=0)&&table(value.foods||{},p=>Array.isArray(p)&&p.length===2&&p.every(n=>Number.isFinite(n)&&Math.abs(n)<1e7)));
+}

@@ -24,7 +24,8 @@ export function petalGeometry(){const shape=new THREE.Shape();shape.moveTo(0,0);
 export function wingGeometry(){const shape=new THREE.Shape();shape.moveTo(7,0);shape.bezierCurveTo(-7,-1,-34,-7,-49,-2);shape.bezierCurveTo(-64,3,-59,14,-46,19);shape.bezierCurveTo(-26,24,-5,16,7,0);const geom=new THREE.ShapeGeometry(shape,18);geom.rotateX(-Math.PI/2);return geom;}
 export function mushroomGeometry(radius=24,height=13){const profile=[];for(let i=0;i<=12;i++){const a=i/12*Math.PI/2;profile.push(new THREE.Vector2(Math.sin(a)*radius,Math.cos(a)*height));}profile.push(new THREE.Vector2(radius*.92,-2),new THREE.Vector2(radius*.2,-5),new THREE.Vector2(0,-5));return new THREE.LatheGeometry(profile,24);}
 // One GPU draw per shared geometry/material, rather than a draw for every seed or leaf.
-export function instances(parent,geometry,material,entries,{shadow=false,receive=false}={}){
+export function instances(parent,geometry,material,entries,{shadow=false,receive=false,tileSize=600}={}){
+ if(tileSize&&entries.length>200){const group=new THREE.Group(),tiles=new Map();parent.add(group);for(const entry of entries){const key=`${Math.floor(entry.position[0]/tileSize)},${Math.floor(entry.position[2]/tileSize)}`;if(!tiles.has(key))tiles.set(key,[]);tiles.get(key).push(entry);}for(const tile of tiles.values())instances(group,geometry,material,tile,{shadow,receive,tileSize:0});return group;}
  const mesh=new THREE.InstancedMesh(geometry,material,entries.length),dummy=new THREE.Object3D();
  entries.forEach((entry,i)=>{dummy.position.set(...entry.position);dummy.scale.set(...(entry.scale||[1,1,1]));dummy.rotation.set(...(entry.rotation||[0,0,0]));dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);if(entry.color)mesh.setColorAt(i,new THREE.Color(entry.color));});mesh.castShadow=shadow;mesh.receiveShadow=receive;parent.add(mesh);return mesh;
 }
