@@ -21,6 +21,8 @@ Um jardim 3D onde uma mosca explora, interage e aprende com as próprias experi�
 
 O FlyWorld transforma um jardim em um espaço de descoberta: árvores, flores, lagos, frutas e caminhos em um mundo de **6.000 × 4.000 unidades**. Acompanhe uma mosca com asas translúcidas, olhos detalhados e pernas animadas enquanto ela percorre o ambiente.
 
+O visual naturalista traz olhos facetados, cerdas e asas com nervuras, árvores com galhos e folhas, flores curvas e água com reflexos. A luz quente e as texturas locais dão mais profundidade ao jardim. Veja os [detalhes do visual e as referências](docs/VISUAL_NATURALISTA.md).
+
 Você pode apenas observar ou participar da experiência: oferecer uma fruta, chamá-la para perto, fazer carinho e brincar com luz. O mapa ajuda a acompanhar os lugares visitados, enquanto o painel mostra o progresso da aprendizagem.
 
 ## ✨ O que você encontra por aqui
