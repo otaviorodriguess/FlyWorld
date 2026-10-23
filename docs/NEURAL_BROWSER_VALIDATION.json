@@ -1,0 +1,66 @@
+{
+  "population": 138639,
+  "sensory": {
+    "sequence": 8,
+    "start_ms": 140,
+    "end_ms": 160,
+    "processing_s": 10.255085100012366,
+    "population": 138639,
+    "spikes": 91,
+    "active": 49,
+    "stimulus": 0.7272727272727275,
+    "stimulus_world_s": 0.04,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0,
+    "command": [
+      0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.0019502519779163883
+  },
+  "motor": {
+    "sequence": 1,
+    "start_ms": 0,
+    "end_ms": 20,
+    "processing_s": 6.5118946000002325,
+    "population": 138639,
+    "spikes": 14,
+    "active": 12,
+    "stimulus": 1,
+    "stimulus_world_s": 0.06,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      3,
+      1
+    ],
+    "p9_hz": 100,
+    "command": [
+      1,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.0030713027818354563
+  },
+  "motorPosition": {
+    "x": 3000.588497422974,
+    "z": 1997.880171992082
+  },
+  "manualIgnored": true,
+  "qUnchanged": true,
+  "pauseFreezesBody": true,
+  "connectionFailureFreezesBody": true,
+  "errors": []
+}

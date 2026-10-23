@@ -9,3 +9,6 @@
 
 @media(max-width:760px){.arcade #panel-toggle{display:block}}
 #arcade-panel button:disabled{opacity:.55;cursor:default}
+#neural-live-controls select{display:block;width:100%;margin:9px 0;padding:9px;border:1px solid #bbc6ad;border-radius:7px;background:#faf8ee;font-size:11px}#neural-live-controls button{display:block;margin:8px 0;padding:9px 12px;border-radius:7px;background:#dce5cf;font-size:11px}#neural-live-info,#neural-command{font-size:11px;line-height:1.6;overflow-wrap:anywhere}button:disabled{opacity:.5;cursor:default}
+[hidden]{display:none!important}.neural .experience-card,.neural .switch-row,.neural .switch-row+.footnote,.neural .stat-grid>div:nth-child(2){display:none}
+@media(max-width:760px){.topbar nav{max-width:calc(100vw - 24px);overflow-x:auto;white-space:nowrap;flex-shrink:0}.topbar .mode{padding:8px;font-size:10px}}

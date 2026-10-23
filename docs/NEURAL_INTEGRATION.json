@@ -1,0 +1,272 @@
+[
+  {
+    "sequence": 1,
+    "start_ms": 0.0,
+    "end_ms": 20.0,
+    "processing_s": 2.8405099999999948,
+    "population": 138639,
+    "spikes": 149,
+    "active": 73,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.0,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.007040989118151331
+  },
+  {
+    "sequence": 2,
+    "start_ms": 20.0,
+    "end_ms": 40.0,
+    "processing_s": 2.3297430999991775,
+    "population": 138639,
+    "spikes": 348,
+    "active": 236,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.02,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.00858463750788963
+  },
+  {
+    "sequence": 3,
+    "start_ms": 40.0,
+    "end_ms": 60.0,
+    "processing_s": 2.2833944000012707,
+    "population": 138639,
+    "spikes": 348,
+    "active": 218,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.04,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.0087588898352334
+  },
+  {
+    "sequence": 4,
+    "start_ms": 60.0,
+    "end_ms": 80.0,
+    "processing_s": 2.2637721999999485,
+    "population": 138639,
+    "spikes": 377,
+    "active": 230,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.06,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.00883481120582736
+  },
+  {
+    "sequence": 5,
+    "start_ms": 80.0,
+    "end_ms": 100.0,
+    "processing_s": 2.1868152000006376,
+    "population": 138639,
+    "spikes": 301,
+    "active": 195,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.08,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "sugar",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.009145720223635802
+  },
+  {
+    "sequence": 1,
+    "start_ms": 0.0,
+    "end_ms": 20.0,
+    "processing_s": 2.4611987000007503,
+    "population": 138639,
+    "spikes": 14,
+    "active": 12,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.0,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      3,
+      1
+    ],
+    "p9_hz": 100.0,
+    "command": [
+      1.0,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.008126121633330093
+  },
+  {
+    "sequence": 2,
+    "start_ms": 20.0,
+    "end_ms": 40.0,
+    "processing_s": 2.077809599999455,
+    "population": 138639,
+    "spikes": 1,
+    "active": 1,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.02,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      0,
+      0
+    ],
+    "p9_hz": 0.0,
+    "command": [
+      0.0,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.00962552102945585
+  },
+  {
+    "sequence": 3,
+    "start_ms": 40.0,
+    "end_ms": 60.0,
+    "processing_s": 2.165530600001148,
+    "population": 138639,
+    "spikes": 2,
+    "active": 2,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.04,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      1,
+      1
+    ],
+    "p9_hz": 50.0,
+    "command": [
+      0.5,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.009235611817255965
+  },
+  {
+    "sequence": 4,
+    "start_ms": 60.0,
+    "end_ms": 80.0,
+    "processing_s": 2.2820018000002165,
+    "population": 138639,
+    "spikes": 8,
+    "active": 6,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.06,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      1,
+      3
+    ],
+    "p9_hz": 100.0,
+    "command": [
+      1.0,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.008764234980006634
+  },
+  {
+    "sequence": 5,
+    "start_ms": 80.0,
+    "end_ms": 100.0,
+    "processing_s": 2.306967099999383,
+    "population": 138639,
+    "spikes": 3,
+    "active": 2,
+    "stimulus": 1.0,
+    "stimulus_world_s": 0.08,
+    "p9_ids": [
+      "720575940627652358",
+      "720575940635872101"
+    ],
+    "p9_counts": [
+      1,
+      2
+    ],
+    "p9_hz": 75.0,
+    "command": [
+      0.75,
+      0
+    ],
+    "experiment": "p9",
+    "controller": "Brian2 -> experimental P9 rate decoder",
+    "realtime_factor": 0.008669391080612007
+  }
+]
