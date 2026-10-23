@@ -125,8 +125,13 @@ def handler_for(service, directory):
             self.send_header('Content-Length', str(len(body)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('X-Content-Type-Options', 'nosniff')
-            self.end_headers()
-            self.wfile.write(body)
+            try:
+                self.end_headers()
+                self.wfile.write(body)
+            except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+                # Switching browser mode can cancel an in-flight HTTP poll.
+                # Its neural block remains owned by the service, not the socket.
+                return
 
         def do_GET(self):
             if not self.allowed():
